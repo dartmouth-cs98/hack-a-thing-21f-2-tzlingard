@@ -7,8 +7,9 @@ For this Hack-a-Thing, I planned to learn the basics of React Native, including 
 
 Screenshots:
 
-![](web_small.jpg)
-![](web_long.jpg)
+![](small.jpg)
+
+![](long.jpg)
 
 ## Who Did What?
 
