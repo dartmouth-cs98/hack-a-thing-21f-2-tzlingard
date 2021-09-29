@@ -7,7 +7,7 @@ const Note = (props) => {
     return(
         <View style={ styles.item}>
             <Text>{props.text}</Text>
-                <FontAwesomeIcon icon = { faTrashAlt } />
+            <FontAwesomeIcon icon = { faTrashAlt } />
         </View>
     )
 }

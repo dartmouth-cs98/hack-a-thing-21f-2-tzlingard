@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { TouchableOpacity, Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
 import Note from './components/Note';
+import Squid from './components/Squid';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Animated } from 'react-native';
 
 export default function App() {
   const [note, setNote] = useState();
@@ -22,6 +21,9 @@ export default function App() {
   
   return (
     <View style={styles.container}>
+      <LinearGradient
+      colors={['#003300', '#00b300']}
+      >
       <Text style={styles.title}>Welcome to my notes app!</Text>
       <View>
         {
@@ -39,11 +41,14 @@ export default function App() {
        placeholder="Enter your note here..."
        value={note}
        onChangeText={(text) => setNote(text)}
+       onSubmitEditing={() => {handleAddNote();setNote("")}}
        />
       <Button onPress={() => {
         handleAddNote()
         setNote("")
       }}title="Add note"/>
+      </LinearGradient>
+      <View><Squid /></View>
     </View>
   );
 }
@@ -55,7 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    color: 'green',
+    color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 20,
@@ -69,6 +74,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 2,
     padding: 10,
-    margin: 20
+    margin: 20,
+    color: 'white'
   }
 });

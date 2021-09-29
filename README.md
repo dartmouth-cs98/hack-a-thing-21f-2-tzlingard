@@ -25,3 +25,5 @@ Thomas Lingard '22
 https://www.youtube.com/watch?v=00HFzh3w1B8
 
 https://reactnative.dev/
+
+https://www.kindacode.com/article/how-to-set-a-gradient-background-in-react-native/
