@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { TouchableOpacity, Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
 import Note from './components/Note';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Animated } from 'react-native';
 
 export default function App() {
   const [note, setNote] = useState();
@@ -20,7 +22,6 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <View style={styles.buttonContainer}>
       <Text style={styles.title}>Welcome to my notes app!</Text>
       <View>
         {
@@ -41,16 +42,14 @@ export default function App() {
        />
       <Button onPress={() => {
         handleAddNote()
+        setNote("")
       }}title="Add note"/>
-      </View>
-      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     margin: 20,
     backgroundColor: '#fff',
     justifyContent: 'center',
