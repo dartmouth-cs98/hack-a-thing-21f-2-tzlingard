@@ -1,26 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
-
-let rows = []
-
+import React, {useState} from 'react';
+import { TouchableOpacity, Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
+import Note from './components/Note';
 
 export default function App() {
+  const [note, setNote] = useState();
+  const [noteItems, setNoteItems] = useState(["Example Note"]);
 
+  const handleAddNote = () => {
+    setNoteItems([...noteItems, note])
+    setNote(null);
+  }
+
+  const handleDeleteNote = (index) => {
+    let itemsCopy = [...noteItems];
+    itemsCopy.splice(index, 1);
+    setNoteItems(itemsCopy);
+  }
+  
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
       <Text style={styles.title}>Welcome to my notes app!</Text>
       <View>
-        {rows}
+        {
+          noteItems.map((item, index) => {
+            return (
+              <TouchableOpacity onPress={() => handleDeleteNote(index)}>
+                <Note key={index} text={item}/>
+              </TouchableOpacity>
+            )
+          })
+        }
       </View>
       <TextInput
        style={styles.input}
        placeholder="Enter your note here..."
-       //onSubmitEditing={_newNote(text)}
+       value={note}
+       onChangeText={(text) => setNote(text)}
        />
       <Button onPress={() => {
-        alert('Nice!')
+        handleAddNote()
       }}title="Add note"/>
       </View>
       <StatusBar style="auto" />
@@ -30,15 +50,16 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: 'row',
+    margin: 20,
     backgroundColor: '#fff',
-    //alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
     color: 'green',
     fontSize: 30,
     fontWeight: 'bold',
+    marginBottom: 20,
   },
   buttonContainer: {
     flex: 1

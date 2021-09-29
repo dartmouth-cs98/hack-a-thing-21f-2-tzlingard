@@ -10,7 +10,7 @@ Include some screenshots.
 
 ## Who Did What?
 
-TODO: who worked on what part?
+I worked on this project individually.
 
 ## What you learned
 
@@ -18,8 +18,10 @@ TODO: what worked / what didn't work
 
 ## Authors
 
-TODO: list of authors
+Thomas Lingard '22
 
 ## Acknowledgments
 
-TODO: cite any tutorials followed here
+https://www.youtube.com/watch?v=00HFzh3w1B8
+
+https://reactnative.dev/
