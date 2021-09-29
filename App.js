@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { TouchableOpacity, Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
+import { TouchableOpacity, Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import Note from './components/Note';
 import Squid from './components/Squid';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,7 +10,7 @@ export default function App() {
 
   const handleAddNote = () => {
     setNoteItems([...noteItems, note])
-    setNote(null);
+    setNote("")
   }
 
   const handleDeleteNote = (index) => {
@@ -41,11 +41,10 @@ export default function App() {
        placeholder="Enter your note here..."
        value={note}
        onChangeText={(text) => setNote(text)}
-       onSubmitEditing={() => {handleAddNote();setNote("")}}
+       onSubmitEditing={() => handleAddNote()}
        />
       <Button onPress={() => {
         handleAddNote()
-        setNote("")
       }}title="Add note"/>
       </LinearGradient>
       <View><Squid /></View>
@@ -56,6 +55,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     margin: 20,
+    padding: 30,
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
